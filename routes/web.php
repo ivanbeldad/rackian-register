@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'RegisterController@get');
-Route::post('/', 'RegisterController@post');
+Route::post('/', 'RegisterController@post')->name('register');

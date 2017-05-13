@@ -1,0 +1,56 @@
+html, body, main {
+    display: flex;
+    flex-grow: 1;
+    min-width: 100%;
+    min-height: 100%;
+}
+body {
+    background: linear-gradient(0, #EEEEEE 60%, #90A4AE 0%);
+}
+
+main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#register-form {
+    border-radius: 0 2px 2px 0;
+    border-left: 3px solid #1976D2;
+    padding: 30px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.24);
+}
+#register-form legend {
+    font-size: 16px;
+    font-weight: 500;
+    color: #424242;
+    margin: 0 0 18px;
+}
+#register-form h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+#register-form small {
+    font-size: 13px;
+    color: #757575;
+    font-weight: 500;
+}
+#register-form input {
+    width: 280px;
+}
+#register-form .form-group label {
+    color: #9E9E9E;
+}
+#register-form .form-group {
+    margin-top: 20px;
+}
+#register-form .form-group:last-child {
+    margin-bottom: 10px;
+}
+#register-form button.btn-raised {
+    background-color: #1976D2;
+}
+.form-group .material-input:focus, .form-group .form-control:focus, .form-group .form-control.focus {
+    background-image: linear-gradient(#1976D2, #1976D2), linear-gradient(#BDBDBD, #BDBDBD);
+}

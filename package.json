@@ -17,5 +17,19 @@
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
-  }
+  },
+  "name": "register_rackian",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ivandelabeldad@bitbucket.org/ivandelabeldad/register-rackian.git"
+  },
+  "author": "Ivan de la Beldad Fernandez",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ivandelabeldad/register-rackian#readme",
+  "description": ""
 }

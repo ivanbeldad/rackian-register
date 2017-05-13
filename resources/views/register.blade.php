@@ -1,95 +1,61 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Ivan de la Beldad Fernandez">
+    <title>Rackian Cloud - Register</title>
 
-        <title>Laravel</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <main class="container">
+        <div id="register-form" class="well well-lg">
+            <form method="post" action="{{ route('register') }}">
+                {{ csrf_field() }}
+                <fieldset>
+                    <legend>Rackian Cloud</legend>
+                    <h2>Sign Up</h2>
+                    <small></small>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                    <div class="form-group label-floating">
+                        <label for="inputUsername" class="control-label">Username *</label>
+                        <input type="text" class="form-control" id="inputUsername" required minlength="4">
+                    </div>
 
-            .full-height {
-                height: 100vh;
-            }
+                    <div class="form-group label-floating">
+                        <label for="inputEmail" class="control-label">Email *</label>
+                        <input type="email" class="form-control" id="inputEmail" required>
+                    </div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                    <div class="form-group label-floating">
+                        <label for="inputPassword" class="control-label">Password *</label>
+                        <input type="password" class="form-control" id="inputPassword" required minlength="6">
+                    </div>
+                    <div class="form-group label-floating">
+                        <label for="inputRepeatPassword" class="control-label">Repeat Password *</label>
+                        <input type="password" class="form-control" id="inputRepeatPassword" required minlength="6">
+                    </div>
 
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+                    <div class="form-group">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-raised">NEXT</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
-    </body>
+    </main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/ripples.min.js"></script>
+</body>
 </html>
