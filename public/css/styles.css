@@ -17,7 +17,7 @@ main {
     justify-content: center;
 }
 #register-form {
-    margin-top: 30px;
+    margin-top: 70px;
     border-radius: 0 2px 2px 0;
     border-left: 3px solid #1976D2;
     padding: 30px 40px;
@@ -40,9 +40,7 @@ main {
     color: #757575;
     font-weight: 500;
 }
-#register-form input {
-    width: 280px;
-}
+
 #register-form .form-group label {
     color: #9E9E9E;
 }
@@ -70,4 +68,48 @@ main {
 }
 #errors li {
     list-style: none;
+}
+.g-recaptcha {
+    margin-top: 10px;
+}
+.g-recaptcha > div {
+    margin: auto;
+}
+#register-form .form-horizontal label {
+    margin-top: 7px;
+}
+@media (min-width: 992px) {
+    #register-form {
+        width: 500px;
+    }
+}
+@media (max-width: 991px) {
+    #register-form .form-group {
+        margin-top: 5px;
+    }
+}
+@media (max-width: 400px){
+    .group-captcha {
+        width: 240px;
+    }
+    .g-recaptcha {
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+}
+a {
+    color: #1976D2;
+}
+a:hover {
+    color: #1e91ff;
+}
+#login {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+#login a {
+    color: #1e91ff;
 }

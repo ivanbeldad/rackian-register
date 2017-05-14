@@ -4,22 +4,29 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use PHPMailer;
 
 class RegisterController extends Controller
 {
 
+    /**
+     * Return the register form view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function get()
     {
         return view('register');
     }
 
+    /**
+     * Check if the user id is not active and active it
+     * @param string $code
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function activate($code)
     {
-        $username = decrypt($code);
-        $user = User::all()->get('username', $username);
+        $user = User::all()->where('id', $code)->first();
 
         if (!$user)
             return Response('Error', 404);
@@ -32,60 +39,46 @@ class RegisterController extends Controller
         return Response('User active successfully', 200);
     }
 
+    /**
+     * Check register form, create user and send mail if is valid. Show errors otherwise.
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
     public function post(Request $request)
     {
         $this->validate($request, [
             'username' => 'required|unique:authentication_user|min:4|max:255',
             'email' => 'required|email|unique:authentication_user',
             'password' => 'required|min:6|max:255|confirmed',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
+
+        $id = User::generateId();
         $user = new User([
+            'id' => $id,
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
+            'first_name' => '',
+            'last_name' => '',
             'is_active' => false,
             'is_staff' => false,
             'is_superuser' => false,
             'space' => 0,
             'date_joined' => Carbon::now(),
         ]);
-        if ($user->save()) {
-            $this->sendMail($user);
-            return Response('Form sent');
-        } else {
-            return Response('There was some error', 400);
+
+        if (!$user->save()) {
+            return view('register')
+                ->withErrors(['There was a problem creating the user. Try again later.']);
         }
-    }
 
-    /**
-     * @param User $user
-     * @return boolean
-     */
-    private function sendMail($user)
-    {
-        $mail = new PHPMailer;
+        if (!$user->sendActivationMail()) {
+            User::find($id)->delete();
+            return view('register')
+                ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
+        }
 
-        //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.zoho.eu';                         // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'info@rackian.com';                 // SMTP username
-        $mail->Password = 'Rackian.01';                       // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                                    // TCP port to connect to
-
-        $mail->setFrom('info@rackian.com', 'Rackian Cloud');
-        $mail->addAddress($user->email, $user->username);     // Add a recipient
-        $mail->addReplyTo('info@rackian.com', 'Rackian Cloud');
-
-        $mail->isHTML(true);                                  // Set email format to HTML
-
-        $mail->Subject = 'Rackian Cloud confirmation email';
-        $mail->Body    = 'Click <a href="http://register.rackian.com/activate/'.crypt($user->username).'">here</a> 
-            to active your user';
-        $mail->AltBody = 'Open http://register.rackian.com/activate/'.crypt($user->username).' to active your user.';
-
-        return $mail->send();
+        return view('success');
     }
 }
