@@ -13,3 +13,4 @@
 
 Route::get('/', 'RegisterController@get');
 Route::post('/', 'RegisterController@post')->name('register');
+Route::get('/activate/{code}', 'RegisterController@activate')->name('activate');
