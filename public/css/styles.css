@@ -4,6 +4,9 @@ html, body, main {
     min-width: 100%;
     min-height: 100%;
 }
+html {
+    background: #EEEEEE;
+}
 body {
     background: linear-gradient(0, #EEEEEE 60%, #90A4AE 0%);
 }
@@ -14,6 +17,7 @@ main {
     justify-content: center;
 }
 #register-form {
+    margin-top: 30px;
     border-radius: 0 2px 2px 0;
     border-left: 3px solid #1976D2;
     padding: 30px 40px;
@@ -22,7 +26,7 @@ main {
 #register-form legend {
     font-size: 16px;
     font-weight: 500;
-    color: #424242;
+    color: #616161;
     margin: 0 0 18px;
 }
 #register-form h2 {
@@ -53,4 +57,17 @@ main {
 }
 .form-group .material-input:focus, .form-group .form-control:focus, .form-group .form-control.focus {
     background-image: linear-gradient(#1976D2, #1976D2), linear-gradient(#BDBDBD, #BDBDBD);
+}
+
+#errors {
+    padding: 15px 46px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.24);
+}
+#errors ul {
+    margin: 0;
+    padding: 0;
+}
+#errors li {
+    list-style: none;
 }

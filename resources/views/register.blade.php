@@ -25,22 +25,24 @@
                     <small></small>
 
                     <div class="form-group label-floating">
-                        <label for="inputUsername" class="control-label">Username *</label>
-                        <input type="text" class="form-control" id="inputUsername" required minlength="4">
+                        <label for="username" class="control-label">Username *</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                               value="{{ old('username') }}" required minlength="4" autofocus>
                     </div>
 
                     <div class="form-group label-floating">
-                        <label for="inputEmail" class="control-label">Email *</label>
-                        <input type="email" class="form-control" id="inputEmail" required>
+                        <label for="email" class="control-label">Email *</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               value="{{ old('email') }}" required>
                     </div>
 
                     <div class="form-group label-floating">
-                        <label for="inputPassword" class="control-label">Password *</label>
-                        <input type="password" class="form-control" id="inputPassword" required minlength="6">
+                        <label for="password" class="control-label">Password *</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="6">
                     </div>
                     <div class="form-group label-floating">
-                        <label for="inputRepeatPassword" class="control-label">Repeat Password *</label>
-                        <input type="password" class="form-control" id="inputRepeatPassword" required minlength="6">
+                        <label for="password_confirmation" class="control-label">Repeat Password *</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required minlength="6">
                     </div>
 
                     <div class="form-group">
@@ -51,6 +53,15 @@
                 </fieldset>
             </form>
         </div>
+        @if (count($errors) > 0)
+            <div id="errors" class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </main>
 
 <script src="js/jquery.min.js"></script>

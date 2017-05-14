@@ -13,6 +13,11 @@ class RegisterController extends Controller
 
     public function post(Request $request)
     {
-        return view('register');
+        $this->validate($request, [
+            'username' => 'required|unique:authentication_user|min:4|max:255',
+            'email' => 'required|email|unique:authentication_user',
+            'password' => 'required|min:6|max:255|confirmed',
+        ]);
+        return Response('Formulario enviado');
     }
 }
