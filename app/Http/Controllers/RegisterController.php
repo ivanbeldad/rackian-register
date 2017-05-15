@@ -73,7 +73,7 @@ class RegisterController extends Controller
                 ->withErrors(['There was a problem creating the user. Try again later.']);
         }
 
-        if (!$user->sendActivationMail()) {
+        if (!$user->sendActivationMail($id)) {
             User::find($id)->delete();
             return view('register')
                 ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
