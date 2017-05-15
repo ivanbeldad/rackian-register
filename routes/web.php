@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', 'RegisterController@get');
+Route::get('/', 'RegisterController@get')->name('register');
 Route::post('/', 'RegisterController@post')->name('register');
 Route::get('/activate/{code}', 'RegisterController@activate')->name('activate');
+
+Route::get('/error', function () {
+    return view('error');
+});
+Route::get('/already', function () {
+    return view('already_activated');
+});
+
+Route::get('/login', function () {
+    return redirect('http://rackian.com/login');
+})->name('login');

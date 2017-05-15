@@ -32,11 +32,11 @@ class RegisterController extends Controller
             return Response('Error', 404);
 
         if ($user->is_active)
-            return Response('This user has been activated already', 200);
+            return view('already_activated');
 
         $user->is_active = true;
         $user->save();
-        return Response('User active successfully', 200);
+        return view('activated');
     }
 
     /**
@@ -50,7 +50,7 @@ class RegisterController extends Controller
             'username' => 'required|unique:authentication_user|min:4|max:255',
             'email' => 'required|email|unique:authentication_user',
             'password' => 'required|min:6|max:255|confirmed',
-            'g-recaptcha-response' => 'required|recaptcha',
+//            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         $id = User::generateId();
@@ -73,12 +73,14 @@ class RegisterController extends Controller
                 ->withErrors(['There was a problem creating the user. Try again later.']);
         }
 
-        if (!$user->sendActivationMail($id)) {
-            User::find($id)->delete();
-            return view('register')
-                ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
-        }
+        $user->sendActivationMail($id);
 
-        return view('success');
+//        if (!$user->sendActivationMail($id)) {
+//            User::find($id)->delete();
+//            return view('register')
+//                ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
+//        }
+//
+//        return view('success');
     }
 }
