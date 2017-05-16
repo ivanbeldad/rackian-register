@@ -1,0 +1,120 @@
+html, body, main {
+    display: flex;
+    flex-grow: 1;
+    min-width: 100%;
+    min-height: 100%;
+}
+html {
+    background: #EEEEEE;
+}
+body {
+    background: linear-gradient(0, #EEEEEE 60%, #90A4AE 0%);
+}
+
+main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#register-form {
+    margin-top: 70px;
+    border-radius: 0 2px 2px 0;
+    border-left: 3px solid #1976D2;
+    padding: 30px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.24);
+}
+#register-form legend {
+    font-size: 16px;
+    font-weight: 500;
+    color: #616161;
+    margin: 0 0 18px;
+}
+#register-form h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+#register-form small {
+    font-size: 13px;
+    color: #757575;
+    font-weight: 500;
+}
+
+#register-form .form-group label {
+    color: #9E9E9E;
+}
+#register-form .form-group {
+    margin-top: 20px;
+}
+#register-form .form-group:last-child {
+    margin-bottom: 10px;
+}
+#register-form button.btn-raised {
+    background-color: #1976D2;
+}
+.form-group .material-input:focus, .form-group .form-control:focus, .form-group .form-control.focus {
+    background-image: linear-gradient(#1976D2, #1976D2), linear-gradient(#BDBDBD, #BDBDBD);
+}
+
+#errors {
+    padding: 15px 46px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.24);
+}
+#errors ul {
+    margin: 0;
+    padding: 0;
+}
+#errors li {
+    list-style: none;
+}
+.g-recaptcha {
+    margin-top: 10px;
+}
+.g-recaptcha > div {
+    margin: auto;
+}
+#register-form .form-horizontal label {
+    margin-top: 7px;
+}
+@media (min-width: 992px) {
+    #register-form {
+        width: 500px;
+    }
+}
+@media (max-width: 991px) {
+    #register-form .form-group {
+        margin-top: 5px;
+    }
+}
+@media (max-width: 400px){
+    .group-captcha {
+        width: 240px;
+    }
+    .g-recaptcha {
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+}
+a {
+    color: #1976D2;
+}
+a:hover {
+    color: #1e91ff;
+}
+#login {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+#login a, #register a {
+    color: #1e91ff;
+}
+#register {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
