@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Ivan de la Beldad Fernandez">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="css/ripples.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="/css/ripples.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
@@ -30,10 +30,10 @@
     @yield('main')
 </main>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/material.min.js"></script>
-<script src="js/ripples.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/material.min.js"></script>
+<script src="/js/ripples.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

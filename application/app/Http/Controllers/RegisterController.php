@@ -50,7 +50,7 @@ class RegisterController extends Controller
             'username' => 'required|unique:authentication_user|min:4|max:255',
             'email' => 'required|email|unique:authentication_user',
             'password' => 'required|min:6|max:255|confirmed',
-//            'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         $id = User::generateId();
@@ -81,6 +81,6 @@ class RegisterController extends Controller
 //                ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
 //        }
 //
-//        return view('success');
+        return view('success');
     }
 }
