@@ -23,5 +23,5 @@ Route::get('/already', function () {
 });
 
 Route::get('/login', function () {
-    return redirect('http://rackian.com/login');
+    return redirect('http://rackian.com');
 })->name('login');
