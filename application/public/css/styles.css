@@ -8,7 +8,7 @@ html {
     background: #EEEEEE;
 }
 body {
-    background: linear-gradient(0, #EEEEEE 60%, #90A4AE 0%);
+    background: linear-gradient(0deg, #EEEEEE 60%, #90A4AE 0%);
 }
 
 main {
