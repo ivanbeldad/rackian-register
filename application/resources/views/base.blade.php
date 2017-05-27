@@ -34,6 +34,5 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/material.min.js"></script>
 <script src="/js/ripples.min.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>
