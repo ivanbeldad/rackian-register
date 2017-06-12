@@ -75,12 +75,6 @@ class RegisterController extends Controller
 
         $user->sendActivationMail($id);
 
-//        if (!$user->sendActivationMail($id)) {
-//            User::find($id)->delete();
-//            return view('register')
-//                ->withErrors(['There was a problem sending the confirmation email. Try again later.']);
-//        }
-//
         return view('success');
     }
 }
