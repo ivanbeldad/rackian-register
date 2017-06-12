@@ -118,3 +118,7 @@ a:hover {
     top: 10px;
     left: 20px;
 }
+
+pre {
+    display: none !important;
+}
